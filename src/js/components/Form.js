@@ -1,0 +1,45 @@
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+
+class Form extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      value: ""
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const { value } = event.target;
+    this.setState(() => {
+      return {
+        value
+      };
+    });
+  }
+
+  render() {
+    return (
+      <form>
+        <input
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+<span>{this.state.value}</span>
+      </form>
+    );
+  }
+}
+
+export default Form;
+
+const wrapper = document.getElementById("container");
+wrapper ? ReactDOM.render(<Form />, wrapper) : false;
+
+
+const wrapper2 = document.getElementById("container2");
+wrapper ? ReactDOM.render(<Form />, wrapper2) : false;
